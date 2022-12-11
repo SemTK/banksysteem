@@ -6,24 +6,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
+                @if(Auth::user())
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('info') }}">Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="{{ route('pricing') }}">Pricing</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Your Details
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Detailed Finances</a></li>
-                        <li><a class="dropdown-item" href="#">Payment history</a></li>
-                        <li><a class="dropdown-item" href="#">Debt</a></li>
-                        <li><a class="dropdown-item" href="#">Loan Request</a></li>
+                        <li><a class="dropdown-item" href="{{ route('detailed-finances') }}">Detailed Finances</a></li>
+                        <li><a class="dropdown-item" href="{{ route('payment-history') }}">Payment history</a></li>
+                        <li><a class="dropdown-item" href="{{ route('debt') }}">Debt</a></li>
+                        <li><a class="dropdown-item" href="{{ route('loan-requests') }}">Loan Requests</a></li>
                     </ul>
                 </li>
             </ul>
