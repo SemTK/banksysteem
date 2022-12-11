@@ -16,6 +16,17 @@
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
+            {{-- Birthdate --}}
+            <div class="mt-4">
+                <x-input-label for="birthdate" :value="__('Birthdate')" />
+
+                <x-text-input id="birthdate" class="block mt-1 w-full"
+                                type="date"
+                                name="birthdate"
+                                required autocomplete="birthdate"/>
+
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Email')" />
