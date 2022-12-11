@@ -30,7 +30,10 @@
         </div>
         <span class="navbar-text">
             @if(Auth::user())
-            <a href="{{ route('logout') }}">Log Out</a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="nav-link">logout</button>
+            </form>
             @else
             <a href="{{ route('register') }}">Register a bankaccount</a>
             <a href="{{ route('login') }}">Login</a>
