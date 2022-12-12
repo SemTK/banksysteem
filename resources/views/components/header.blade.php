@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">BankSysteem</a>
+        <a class="navbar-brand" href="{{ route('home') }}">BankSysteem</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,6 +32,11 @@
                         <li><a class="dropdown-item" href="{{ route('loan-requests') }}">Loan Requests</a></li>
                     </ul>
                 </li>
+                @if(Auth::user() && Auth::user()->isAdmin == 1)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin') }}">Admin</a>
+                </li>
+                @endif
             </ul>
         </div>
         <span class="navbar-text">
