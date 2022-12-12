@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bankaccount', function (Blueprint $table) {
-            $table->primary('owner_id');
+            $table->id();
+            $table->integer('owner_id');
             $table->boolean('adult')->default(true);
             $table->bigInteger('money')->nullable();
             $table->string('type');
