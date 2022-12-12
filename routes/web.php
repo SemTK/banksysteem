@@ -22,6 +22,8 @@ Route::get('/loan-requests', [PagesController::class, 'viewLoansPage'])->name('l
 
 Route::get('/dashboard', [PagesController::class, 'viewDashboardPage'])->name('dashboard')->middleware('auth');
 
+Route::get('/admin', [PagesController::class, 'viewAdminPage'])->name('admin')->middleware(['auth', 'admin']);
+
 // POST Routes
 
 require __DIR__.'/auth.php';
