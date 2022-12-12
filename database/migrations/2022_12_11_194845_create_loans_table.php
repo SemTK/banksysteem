@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->integer('loan_user_id');
+            $table->bigInteger('loan_amount');
+            $table->boolean('entitled_to')->default(false);
             $table->timestamps();
         });
     }

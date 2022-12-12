@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bankaccount', function (Blueprint $table) {
-            $table->id();
+            $table->primary('owner_id');
+            $table->boolean('adult')->default(true);
+            $table->bigInteger('money')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }

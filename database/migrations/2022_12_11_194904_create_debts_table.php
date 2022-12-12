@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('debts', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_in_debt_id');
+            $table->bigInteger('debt_amount');
+            $table->bigInteger('debt_payed_amount')->nullable();
+            $table->date('time_to_pay');     
             $table->timestamps();
         });
     }
