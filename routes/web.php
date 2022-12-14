@@ -30,6 +30,9 @@ Route::get('/admin', [PagesController::class, 'viewAdminPage'])->name('admin')->
 Route::get('/admin/delete-bankaccount', [PagesController::class, 'viewAdminDeleteAccountpage'])->name('admin-delete-bankaccount-page')->middleware(['auth', 'admin']);
 
 Route::get('/bankaccount/deposit/{bankaccountID}', [PagesController::class, 'viewBankaccountDepositPage'])->name('bankaccount-deposit-page')->middleware('auth');
+
+Route::get('/bankaccount/withdraw/{bankacountID}', [PagesController::class, 'viewBankaccountWithdrawPage'])->name('bankaccount-withdraw-page')->middleware('auth');
+
 // POST Routes
 
 Route::post('/bankaccount/create', [AccountsController::class, 'createBankaccount'])->name('create-bank-account')->middleware('auth');
