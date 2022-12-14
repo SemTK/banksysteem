@@ -18,10 +18,10 @@
     @endif
     
     <div class="withdraw-form">
-        <form action="" method="POST">
+        <form action="{{ route('bankaccount-withdraw-money', $bankaccount->id) }}" method="POST">
             @csrf
             <div class="mb-3 row">
-                <label for="money" class="col-sm-2 col-form-label">Deposit money:</label>
+                <label for="money" class="col-sm-2 col-form-label">Withdraw money:</label>
                 <div class="col-sm-10">
                     @if($bankaccount->type == "regular")
                     <input type="number" class="form-control" id="money" name="money" max="2500">
