@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\Bankaccount;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use League\CommonMark\Extension\CommonMark\Parser\Inline\BangParser;
@@ -32,6 +33,25 @@ class AccountsController extends Controller
         $bankaccount = Bankaccount::findOrFail($bankaccountID);
         $bankaccount->money += $request->input('money');
         $bankaccount->save();
+
+        return redirect('detailed-finances');
+    }
+
+    public function withdrawMoney(Request $request, $bankaccountID){
+        $bankaccount = Bankaccount::findOrFail($bankaccountID);
+        $bankaccount->money -= $request->input('money');
+        $bankaccount->save();
+
+        $payment = new Payment();
+        $payment->user_id = Auth::user()->id;
+        $payment->bankaccount_id = $bankaccount->id;
+        $payment->amount = $request->input('money');
+        $payment->receiving_account =  $request->input('receiving-bankaccount-id');
+        $payment->save();
+
+        // if($request->input('receiving-bankaccount-id') == Bankaccount::id()){
+        //     $payment->amount += 
+        // }
 
         return redirect('detailed-finances');
     }
