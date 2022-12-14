@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -22,8 +23,16 @@ Route::get('/loan-requests', [PagesController::class, 'viewLoansPage'])->name('l
 
 Route::get('/dashboard', [PagesController::class, 'viewDashboardPage'])->name('dashboard')->middleware('auth');
 
+Route::get('/bankaccount/create', [PagesController::class, 'viewCreateBankaccountPage'])->name('create-bankaccount-page')->middleware('auth');
+
 Route::get('/admin', [PagesController::class, 'viewAdminPage'])->name('admin')->middleware(['auth', 'admin']);
 
+Route::get('/admin/delete-bankaccount', [PagesController::class, 'adminDeleteAccountpage'])->name('admin-delete-bankaccount-page')->middleware(['auth', 'admin']);
+
 // POST Routes
+
+Route::post('/bankaccount/create', [AccountsController::class, 'createBankaccount'])->name('create-bank-account')->middleware('auth');
+
+Route::post('/admin/bankaccount/delete/{bankaccountID}', [AccountsController::class, 'deleteBankaccount'])->name('delete-bank-account')->middleware(['auth', 'admin']);
 
 require __DIR__.'/auth.php';
