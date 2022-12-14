@@ -26,10 +26,13 @@
                         Your Details
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('detailed-finances') }}">Detailed Finances</a></li>
-                        <li><a class="dropdown-item" href="{{ route('payment-history') }}">Payment history</a></li>
-                        <li><a class="dropdown-item" href="{{ route('debt') }}">Debt</a></li>
-                        <li><a class="dropdown-item" href="{{ route('loan-requests') }}">Loan Requests</a></li>
+                        <li><a class="dropdown-item" href="{{ route('detailed-finances') }}">&rarr; Detailed Finances</a></li>
+                        <li><a class="dropdown-item" href="{{ route('payment-history') }}">&rarr; Payment history</a></li>
+                        <li><a class="dropdown-item" href="{{ route('debt') }}">&rarr; Debt</a></li>
+                        <li><a class="dropdown-item" href="{{ route('loan-requests') }}">&rarr; Loan Requests</a></li>
+                        @if(Auth::user() && Auth::user()->birthdate < 01-01-2004 || Auth::user() && Auth::user()->isAdmin == 1)
+                        <li><a class="dropdown-item" href="{{ route('create-bankaccount-page') }}">&rarr; Create a bankaccount</a></li>
+                        @endif
                     </ul>
                 </li>
                 @if(Auth::user() && Auth::user()->isAdmin == 1)
@@ -46,7 +49,7 @@
                 <button type="submit" class="nav-link">logout</button>
             </form>
             @else
-            <a href="{{ route('register') }}">Register a bankaccount</a>
+            <a href="{{ route('register') }}">Register an account</a>
             <a href="{{ route('login') }}">Login</a>
             @endif
         </span>
