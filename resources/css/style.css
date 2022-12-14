@@ -5,12 +5,41 @@
     margin-top: 25px;
     margin-bottom: 45px;
 }
+.container h6{
+    margin-bottom: 20px;
+}
 .create-account-button button{
     margin-top: 15px;
 }
 .container h4{
     margin-bottom: 40px;
 }
+
+
+/* detailed-finances page */
+.finances-bankaccounts span{
+    font-weight: bold;
+}
+.finances h6{
+    margin-bottom: 25px;
+    padding-left: 5px;
+}
+.finances-money-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.finances-bankaccounts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+/* deposit money */
+.deposit-button{
+    margin-top: 25px;
+}
+.deposit-form{
+    margin-top: 50px;
+}
+/* admin styling */
 .admin-bankaccount-list span{
     font-weight: bold;
 }
@@ -21,15 +50,4 @@
 .admin-bankaccount-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.finances-bankaccounts span{
-    font-weight: bold;
-}
-.finances-bankaccounts h6{
-    margin-bottom: 25px;
-    padding-left: 5px;
-}
-.finances-money-buttons{
-    display: flex;
-    justify-content: space-around;
 }
