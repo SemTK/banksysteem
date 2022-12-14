@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
+    // header-views
     public function viewHomePage(){
         return view('home');
     }
@@ -37,17 +38,26 @@ class PagesController extends Controller
     public function viewLoansPage(){
         return view('loans');
     }
+    // admin-views
     public function viewAdminPage(){
         return view('admin');
     }
-    public function viewCreateBankaccountPage(){
-        return view('create-bankaccount-page');
-    }
-    public function adminDeleteAccountpage(){
+    public function viewAdminDeleteAccountpage(){
         $allBankaccounts = Bankaccount::all();
 
         return view('admin-account-delete',[
             "bankaccounts" => $allBankaccounts,
+        ]);
+    }
+    // bankaccount-views
+    public function viewCreateBankaccountPage(){
+        return view('create-bankaccount-page');
+    }
+    public function viewBankaccountDepositPage($bankaccountID){
+        $bankaccount = Bankaccount::findOrFail($bankaccountID);
+
+        return view('bankaccount-deposit',[
+            'bankaccount' => $bankaccount,
         ]);
     }
 }
