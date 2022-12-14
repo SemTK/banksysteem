@@ -6,8 +6,9 @@
     <h1>This is your current financial situation.</h1>
     
     <div class="finances">
+        <h6>Here are your bankaccounts.</h6>
         <div class="finances-bankaccounts">
-            <h6>Here are your bankaccounts.</h6>
+            
             @foreach($bankaccounts as $bankaccount)
             
             @if($bankaccount->owner_id == Auth::user()->id)
@@ -22,7 +23,7 @@
                     <li class="list-group-item">Created at: <span>{{$bankaccount->created_at}}</span></li>
                     <li class="list-group-item">
                         <div class="finances-money-buttons">
-                            <a class="btn btn-success" href="">Deposit</a>
+                            <a class="btn btn-success" href="{{ route('bankaccount-deposit-page', $bankaccount->id) }}">Deposit</a>
                             <a class="btn btn-danger" href="">Withdraw</a>
                         </div>
                     </li>
