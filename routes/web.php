@@ -27,12 +27,15 @@ Route::get('/bankaccount/create', [PagesController::class, 'viewCreateBankaccoun
 
 Route::get('/admin', [PagesController::class, 'viewAdminPage'])->name('admin')->middleware(['auth', 'admin']);
 
-Route::get('/admin/delete-bankaccount', [PagesController::class, 'adminDeleteAccountpage'])->name('admin-delete-bankaccount-page')->middleware(['auth', 'admin']);
+Route::get('/admin/delete-bankaccount', [PagesController::class, 'viewAdminDeleteAccountpage'])->name('admin-delete-bankaccount-page')->middleware(['auth', 'admin']);
 
+Route::get('/bankaccount/deposit/{bankaccountID}', [PagesController::class, 'viewBankaccountDepositPage'])->name('bankaccount-deposit-page')->middleware('auth');
 // POST Routes
 
 Route::post('/bankaccount/create', [AccountsController::class, 'createBankaccount'])->name('create-bank-account')->middleware('auth');
 
 Route::post('/admin/bankaccount/delete/{bankaccountID}', [AccountsController::class, 'deleteBankaccount'])->name('delete-bank-account')->middleware(['auth', 'admin']);
+
+Route::post('/bankaccount/deposit/{bankaccountID}', [AccountsController::class, 'depositMoney'])->name('bankaccount-deposit-money')->middleware('auth');
 
 require __DIR__.'/auth.php';
