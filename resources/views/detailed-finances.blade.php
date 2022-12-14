@@ -24,7 +24,7 @@
                     <li class="list-group-item">
                         <div class="finances-money-buttons">
                             <a class="btn btn-success" href="{{ route('bankaccount-deposit-page', $bankaccount->id) }}">Deposit</a>
-                            <a class="btn btn-danger" href="">Withdraw</a>
+                            <a class="btn btn-danger" href="{{ route('bankaccount-withdraw-page', $bankaccount->id) }}">Withdraw</a>
                         </div>
                     </li>
                 </ul>
