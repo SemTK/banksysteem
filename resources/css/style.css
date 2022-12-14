@@ -3,4 +3,33 @@
 }
 .container h1{
     margin-top: 25px;
+    margin-bottom: 45px;
+}
+.create-account-button button{
+    margin-top: 15px;
+}
+.container h4{
+    margin-bottom: 40px;
+}
+.admin-bankaccount-list span{
+    font-weight: bold;
+}
+.admin-account-delete-button{
+    display: flex;
+    justify-content: space-around;
+}
+.admin-bankaccount-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.finances-bankaccounts span{
+    font-weight: bold;
+}
+.finances-bankaccounts h6{
+    margin-bottom: 25px;
+    padding-left: 5px;
+}
+.finances-money-buttons{
+    display: flex;
+    justify-content: space-around;
 }
