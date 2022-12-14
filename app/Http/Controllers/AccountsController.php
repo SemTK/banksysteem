@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Bankaccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use League\CommonMark\Extension\CommonMark\Parser\Inline\BangParser;
 
 class AccountsController extends Controller
 {
@@ -25,5 +26,13 @@ class AccountsController extends Controller
         $bankaccount->delete();
 
         return back();
+    }
+
+    public function depositMoney(Request $request ,$bankaccountID){
+        $bankaccount = Bankaccount::findOrFail($bankaccountID);
+        $bankaccount->money += $request->input('money');
+        $bankaccount->save();
+
+        return redirect('detailed-finances');
     }
 }
