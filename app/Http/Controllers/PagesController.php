@@ -60,4 +60,11 @@ class PagesController extends Controller
             'bankaccount' => $bankaccount,
         ]);
     }
+    public function viewBankaccountWithdrawPage($bankaccountID){
+        $bankaccount = Bankaccount::findOrFail($bankaccountID);
+
+        return view('bankaccount-withdraw',[
+            'bankaccount' => $bankaccount,
+        ]);
+    }
 }
