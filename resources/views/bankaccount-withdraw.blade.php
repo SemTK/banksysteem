@@ -38,7 +38,7 @@
                 <label for="receiving-bankaccount-id" class="col-sm-2 col-form-label">Receiving bankaccount ID:</label>
                 
                 <div class="col-sm-10">
-                    <input type="text" name="receiving-bankaccount-id" id="receiving-bankaccount-id" class="form-control"> 
+                    <input type="number" name="receiving-bankaccount-id" id="receiving-bankaccount-id" class="form-control"> 
                 </div>
             </div>
             <div class="withdraw-button">
