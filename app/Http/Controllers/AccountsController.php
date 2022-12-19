@@ -49,9 +49,13 @@ class AccountsController extends Controller
         $payment->receiving_account =  $request->input('receiving-bankaccount-id');
         $payment->save();
 
-        // if($request->input('receiving-bankaccount-id') == Bankaccount::id()){
-        //     $payment->amount += 
-        // }
+        $receiving_user_id = $payment->receiving_account;
+        $receiving_user = Bankaccount::findOrFail($receiving_user_id);
+
+        if($receiving_user->id == $receiving_user_id){
+            $receiving_user->money += $payment->amount;
+            $receiving_user->save();
+        }
 
         return redirect('detailed-finances');
     }
