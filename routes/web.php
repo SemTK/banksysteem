@@ -7,6 +7,7 @@ use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 
 // GET Routes
+
 Route::get('/', [PagesController::class, 'viewHomePage'])->name('home');
 
 Route::get('/info', [PagesController::class, 'viewInfoPage'])->name('info');
@@ -42,4 +43,5 @@ Route::post('/admin/bankaccount/delete/{bankaccountID}', [AccountsController::cl
 Route::post('/bankaccount/deposit/{bankaccountID}', [AccountsController::class, 'depositMoney'])->name('bankaccount-deposit-money')->middleware('auth');
 
 Route::post('/bankaccount/withdraw/{bankaccountID}', [AccountsController::class, 'withdrawMoney'])->name('bankaccount-withdraw-money')->middleware('auth');
+    
 require __DIR__.'/auth.php';

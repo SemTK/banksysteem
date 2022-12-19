@@ -19,6 +19,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Balance: <span>{{$bankaccount->money}}</span></li>
+                    <li class="list-group-item">Transfer ID: <span>{{$bankaccount->id}}</span></li>
                     <li class="list-group-item">Yearly fee: <span>...</span></li>
                     <li class="list-group-item">Created at: <span>{{$bankaccount->created_at}}</span></li>
                     <li class="list-group-item">
