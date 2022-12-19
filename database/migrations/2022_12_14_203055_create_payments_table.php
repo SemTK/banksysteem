@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('bankaccount_id');
             $table->bigInteger('amount');
-            $table->string('receiving_account');
+            $table->bigInteger('receiving_account');
             $table->timestamps();
         });
     }
