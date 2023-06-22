@@ -34,6 +34,8 @@ Route::get('/bankaccount/deposit/{bankaccountID}', [PagesController::class, 'vie
 
 Route::get('/bankaccount/withdraw/{bankacountID}', [PagesController::class, 'viewBankaccountWithdrawPage'])->name('bankaccount-withdraw-page')->middleware('auth');
 
+Route::get('/bankaccount/loan-request/request', [PagesController::class, 'viewLoanRequestPage'])->name('loan-request-form')->middleware('auth');
+
 // POST Routes
 
 Route::post('/bankaccount/create', [AccountsController::class, 'createBankaccount'])->name('create-bank-account')->middleware('auth');
